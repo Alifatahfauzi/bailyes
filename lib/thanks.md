@@ -1,3 +1,0 @@
-# whiskeysockets
-# Kyuurzy 
-# Fauzialifatah
