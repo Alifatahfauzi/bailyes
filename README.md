@@ -10,9 +10,35 @@
 
 </div>
 
-> [!CAUTION]
-> Mulai dari versi 7.0.0, beberapa perubahan penting telah diperkenalkan ke dalam pustaka.
->
-> Silakan periksa https://whiskey.so/migrate-latest untuk informasi lebih lanjut
->
-> Support 
+### Custom Pairing Code
+
+<details>
+<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
+<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
+
+```ts
+if(usePairingCode && !conn.authState.creds.registered) {
+    const phoneNumber = await question('Please enter your mobile phone number:\n');
+    // Define your custom 8-digit code (alphanumeric)
+    const customPairingCode = "BAIL-SHNY";
+    const code = await conn.requestPairingCode(phoneNumber, customPairingCode);
+    console.log(`Your Pairing Code: ${code?.match(/.{1,4}/g)?.join('-') || code}`);
+}
+```
+*Note: The `question` function is a placeholder for your method of obtaining user input.*
+</div>
+</details>
+
+
+## Install
+
+Install in package.json:
+```json
+"dependencies": {
+    "baileys": "github:Alifatahfauzi/bailyes"
+}
+```
+or install in terminal:
+```
+npm install baileys@github:Alifatahfauzi/bailyes
+```
